@@ -2,6 +2,7 @@ letras_verificadas = []
 cantidad_letras = 5
 palabra= "queso"
 def verificador_palabra(palabra_ingresada, palabra_secreta):
+    letras_verificadas.clear()
     for i in range(cantidad_letras):
         las_palabras_son_iguales = palabra_ingresada[i] == palabra_secreta[i] # True o False
         la_letra_existe_en_la_palabra = palabra_ingresada[i] in palabra_secreta 
@@ -15,7 +16,7 @@ def verificador_palabra(palabra_ingresada, palabra_secreta):
         else:
             letras_verificadas.append(palabra_ingresada[i])
     
-        return letras_verificadas
+    return letras_verificadas
 # definir la cantidad de intentos = variable
 intentos = 0
 
@@ -23,9 +24,9 @@ while intentos < 6:
     print(f"te quedan {6 - intentos} intentos")
     intentos = intentos + 1
     palabra_ingresada = input("Ingrese una palabra")
-    verificador_palabra(palabra_ingresada, palabra)
     print(f"la palabra ingresada es: {palabra_ingresada}")
-    print(f"{verificador_palabra(palabra_ingresada,palabra)}")
+    resultado= verificador_palabra(palabra_ingresada,palabra)
+    print("".join(resultado))
     if palabra==palabra_ingresada:
-        print("felicidades es la palabra correcta")
+        print("felicidades encontraste la palabra correcta")
         break
